@@ -1,6 +1,6 @@
+import { libraryGenerator } from "@nx/angular/generators";
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nx/devkit';
-import { myGeneratorGenerator } from './generator';
+import { Tree } from '@nx/devkit';
 
 describe('my-generator generator', () => {
   let tree: Tree;
@@ -10,8 +10,12 @@ describe('my-generator generator', () => {
   });
 
   it('should run successfully', async () => {
-    await myGeneratorGenerator(tree);
-    const config = readProjectConfiguration(tree, 'test');
-    expect(config).toBeDefined();
+    // this will fail:
+    const result =   await libraryGenerator(tree, {
+      name: 'test',
+      directory: '',
+    });
+
+    expect(result).toBeDefined();
   });
 });
