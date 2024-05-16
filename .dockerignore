@@ -1,0 +1,14 @@
+# Cache, VCS and IDE and system files
+.git
+.idea
+.vscode
+.DS_Store
+.nx
+Thumbs.db
+npm-debug.log
+
+# compiled output
+dist
+
+# dependencies
+node_modules

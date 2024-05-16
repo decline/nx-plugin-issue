@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+
+  plugin-issue:
+    build:
+      context: .
+    container_name: plugin-issue
+    volumes:
+      - ./:/app:delegated
+      - node-modules:/app/node_modules
+    command: nx test my-plugin
+
+volumes:
+  node-modules:
